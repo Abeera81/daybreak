@@ -18,7 +18,7 @@ So I built Daybreak: a headless Hermes agent that, every weekday at 7:00am, rese
 
 {% youtube YOUR_VIDEO_ID %}
 
-**Repo:** https://github.com/YOU/daybreak *(MIT)* · **Try it:** one command, see below.
+**Repo:** https://github.com/Abeera81/daybreak *(MIT)* · **Try it:** one command, see below.
 
 ---
 
@@ -39,7 +39,7 @@ Here's the 7:00am message (text + a playable voice note): *[screenshot]*
 
 One command reproduces it (then `hermes model` + a Discord bot token):
 ```
-git clone https://github.com/YOU/daybreak && cd daybreak && ./setup.sh
+git clone https://github.com/Abeera81/daybreak && cd daybreak && ./setup.sh
 ```
 Things to try: change the topics in `skills/daily-brief/SKILL.md`, reply "too much fluff" to a brief, and watch the skill rewrite its own style rules.
 
@@ -47,7 +47,7 @@ Things to try: change the topics in `skills/daily-brief/SKILL.md`, reply "too mu
 
 ## Code
 
-Repo: https://github.com/YOU/daybreak — the interesting file isn't code, it's the **skill**:
+Repo: https://github.com/Abeera81/daybreak — the interesting file isn't code, it's the **skill**:
 `skills/daily-brief/SKILL.md` (the agent's editable brain) and `setup.sh`. *[short skill excerpt]*
 
 ---
