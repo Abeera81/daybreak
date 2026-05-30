@@ -4,13 +4,13 @@
 
 Daybreak is a headless [Hermes Agent](https://github.com/NousResearch/hermes-agent)
 that — every weekday at **7:00am** — researches your topics, writes a 150-word
-brief, **narrates it as audio**, and sends both to your phone on Telegram.
+brief, **narrates it as audio**, and sends both to your phone on Discord.
 
 You never launch anything. And it gets sharper every day: reply to a brief with
 feedback, and the agent **rewrites its own skill file** to match your taste.
 
 **Total cost: $0.** Free OpenRouter model · free Edge TTS · free DuckDuckGo
-search · free Telegram bot. No credit card anywhere.
+search · free Discord bot. No credit card anywhere.
 
 ---
 
@@ -22,7 +22,7 @@ A natural-language cron job fires the `daily-brief` skill, which:
 2. checks your GitHub notifications (optional),
 3. writes a 3-bullet, ~150-word brief (breaking/actionable first),
 4. narrates it to an MP3 with **free Edge TTS**,
-5. delivers text + audio to Telegram.
+5. delivers text + audio to Discord.
 
 There is **no UI** — that's the point. You consume the brief hands-free while the
 kettle boils.
@@ -32,7 +32,7 @@ kettle boils.
 | Hermes capability | Role in Daybreak |
 |---|---|
 | Natural-language **cron** | "every weekday at 7:00am" — no YAML, no crontab |
-| **Gateway** delivery | Text + voice straight to Telegram |
+| **Gateway** delivery | Text + voice straight to Discord |
 | **Web search** (DuckDuckGo) | Free, key-less topic research |
 | **Skills** + self-improvement | The agent edits `daily-brief/SKILL.md` from your feedback |
 | **Text-to-speech** (Edge TTS) | Free audio narration — a capability almost no entry used |
@@ -44,7 +44,7 @@ kettle boils.
 git clone https://github.com/YOU/daybreak && cd daybreak
 ./setup.sh
 hermes model          # choose OpenRouter free, >=64K context, paste your key
-# put TELEGRAM_BOT_TOKEN + TELEGRAM_ALLOWED_USERS in ~/.hermes/.env (see .env.example)
+# put DISCORD_BOT_TOKEN + DISCORD_ALLOWED_USERS in ~/.hermes/.env (see .env.example)
 hermes gateway setup && hermes gateway start
 ```
 Then add the schedule inside Hermes:
@@ -66,7 +66,7 @@ Or open WSL directly and run the Linux steps above.
 ## Configuration
 
 Edit your topics in **`skills/daily-brief/SKILL.md`** (step 1), or just reply to a
-brief on Telegram (e.g. *"also track Rust releases"*) and let the agent update the
+brief on Discord (e.g. *"also track Rust releases"*) and let the agent update the
 file itself.
 
 Secrets live in `~/.hermes/.env` — see [`.env.example`](.env.example). Never

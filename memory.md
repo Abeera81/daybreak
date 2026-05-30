@@ -11,25 +11,34 @@ text + voice to Telegram. The thesis: "The best agent is the one you never open.
 - Schedule: Hermes natural-language cron (gateway)
 - Search: DuckDuckGo skill (no key)
 - Audio: Edge TTS (free, Hermes default)
-- Delivery: Telegram bot (free)
+- Delivery: Discord bot (free; Telegram is region-blocked for me)
 - Host: WSL on Windows for dev; always-on box for the live 7am run
 
 ## Status snapshot
 - [x] Repo scaffolded (SKILL.md, setup.sh, setup.ps1, LICENSE, README, configs)
 - [x] Submission deliverables drafted (BLOG_POST.md, docs/DEMO.md)
-- [ ] WSL installed (BLOCKED: needs admin + reboot — user action)
-- [ ] Hermes installed (WSL)
-- [ ] Model connected (OpenRouter free)
-- [ ] Telegram gateway live
+- [x] WSL + Ubuntu 26.04 installed
+- [x] Hermes Agent v0.15.1 installed in WSL (~/.hermes)
+- [x] daily-brief skill installed into ~/.hermes/skills/ (abeera user)
+- [x] Model connected: nvidia/nemotron-3-super-120b-a12b:free via OpenRouter (tested OK)
+- [x] Discord gateway LIVE (connected as daybreak#8659), runs via `hermes gateway run`
+- [x] Verified deliveries to Discord #general: test msg, web-search summary, TTS audio clip
+- [x] All pipeline stages proven working individually (search/write/TTS/deliver)
+- [~] Full end-to-end skill run blocked by OpenRouter free daily cap (HTTP 429 free-models-per-day)
+- [ ] Switching model to Groq free tier for reliable runs -- USER getting key
 - [ ] 7am cron added
-- [ ] First brief delivered
 - [ ] Self-improvement diff captured
 - [ ] Video recorded
 - [ ] dev.to post published
 
+## Known issue / decision
+- OpenRouter ":free" models share a ~50 req/day account-wide cap. Testing exhausted it.
+- Fix: add Groq (free, no card, llama-3.3-70b-versatile = 128K ctx) as the model.
+- Resets at 00:00 UTC if reverting to OpenRouter.
+
 ## Key decisions
 - Headless on purpose: no UI, no dashboard (the angle, not a gap).
-- Telegram only (no Slack/Discord/email sprawl).
+- Telegram only (no Slack/Discord/email sprawl). -> SWITCHED to Discord (Telegram banned in region).
 - Free Edge TTS only (no ElevenLabs).
 - Windows host -> use WSL so the Linux installer works verbatim.
 

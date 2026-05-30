@@ -9,7 +9,7 @@ when_to_use: When asked to run the morning brief, or when the weekday-7am cron f
 2. Check my GitHub notifications (if GITHUB_TOKEN is configured) for @mentions and review requests.
 3. Write a brief: max 150 words, 3 bullets, lead with anything breaking/actionable.
 4. Narrate the brief to an MP3 using the free Edge TTS provider.
-5. Send the text AND the audio to me on Telegram.
+5. Send the text AND the audio to me on Discord.
 
 ## Style rules (the agent will extend this section from my feedback)
 - No press-release fluff. No "exciting news". Lead with breaking changes.
