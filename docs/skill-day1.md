@@ -14,12 +14,6 @@ when_to_use: When asked to run the morning brief, or when the weekday-7am cron f
 ## Style rules (the agent will extend this section from my feedback)
 - No press-release fluff. No "exciting news". Lead with breaking changes.
 - Plain language. Short sentences. No emoji in the audio script.
-- Lead with security CVEs and their severity scores.
-- For each CVE, name the affected package and the fixed version.
-- Cut generic advice (e.g., "consult CVE databases").
-- If Python news is a beta, one line max.
-- The single most actionable item should be bullet one.
-- Keep the audio script under 90 seconds.
 
 ## Pitfalls
 - If a source is older than 24h, skip it.
