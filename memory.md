@@ -15,26 +15,23 @@ text + voice to Telegram. The thesis: "The best agent is the one you never open.
 - Host: WSL on Windows for dev; always-on box for the live 7am run
 
 ## Status snapshot
-- [x] Repo scaffolded (SKILL.md, setup.sh, setup.ps1, LICENSE, README, configs)
-- [x] Submission deliverables drafted (BLOG_POST.md, docs/DEMO.md)
-- [x] WSL + Ubuntu 26.04 installed
-- [x] Hermes Agent v0.15.1 installed in WSL (~/.hermes)
-- [x] daily-brief skill installed into ~/.hermes/skills/ (abeera user)
-- [x] Model connected: nvidia/nemotron-3-super-120b-a12b:free via OpenRouter (tested OK)
-- [x] Discord gateway LIVE (connected as daybreak#8659), runs via `hermes gateway run`
-- [x] Verified deliveries to Discord #general: test msg, web-search summary, TTS audio clip
-- [x] All pipeline stages proven working individually (search/write/TTS/deliver)
-- [~] Full end-to-end skill run blocked by OpenRouter free daily cap (HTTP 429 free-models-per-day)
-- [ ] Switching model to Groq free tier for reliable runs -- USER getting key
-- [ ] 7am cron added
-- [ ] Self-improvement diff captured
-- [ ] Video recorded
-- [ ] dev.to post published
+- [x] Repo scaffolded + agent-build workflow (memory.md, AGENTS.md, commits)
+- [x] WSL + Ubuntu 26.04 + Hermes Agent v0.15.1 installed
+- [x] daily-brief skill installed (~/.hermes/skills/daily-brief)
+- [x] Discord gateway LIVE (daybreak#8659), delivers to #general
+- [x] Model: Google AI Studio gemini-2.5-flash (free tier) — after OpenRouter free daily cap (429)
+- [x] FULL brief delivered end-to-end: search -> write -> edge-tts MP3 -> Discord (text + audio)
+- [x] 7am weekday cron created (daybreak-morning, 0 7 * * 1-5, -> discord:#general)
+- [x] Self-improvement diff captured (Style rules 2 -> 8) in docs/skill-improvement.diff
+- [ ] Push repo to GitHub (USER)
+- [ ] Cover image 1000x420 (USER)
+- [ ] 60-90s video with voiceover (USER)
+- [ ] Publish dev.to post (USER)
 
 ## Known issue / decision
 - OpenRouter ":free" models share a ~50 req/day account-wide cap. Testing exhausted it.
-- Fix: add Groq (free, no card, llama-3.3-70b-versatile = 128K ctx) as the model.
-- Resets at 00:00 UTC if reverting to OpenRouter.
+- Fix applied: switched to Google AI Studio gemini-2.5-flash (free tier, 1M ctx).
+- Gateway must stay running for the 7am cron (WSL must be awake) — note in post.
 
 ## Key decisions
 - Headless on purpose: no UI, no dashboard (the angle, not a gap).
