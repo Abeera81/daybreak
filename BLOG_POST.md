@@ -74,7 +74,7 @@ The full diff is in the repo at `docs/skill-improvement.diff`.
 
 **Why Edge TTS.** Hermes ships Edge TTS as a free default — no key, no ElevenLabs bill. I checked: almost no other entry in this challenge used text-to-speech at all. Audio is the difference between a brief I skim and one I actually consume while making coffee. Concession: Edge TTS voices are good, not studio-grade.
 
-**Why I switched models mid-build (an honest bug).** Hermes is model-agnostic, so I started with a free OpenRouter model via one `hermes model` call. Two gotchas bit me: Hermes rejects models under 64K context at startup (it needs working memory for multi-step tool calls), and OpenRouter's `:free` tier has a ~50-requests/day **account-wide** cap that my testing blew through (`HTTP 429: free-models-per-day`). The fix was one command: `hermes model` → **Google AI Studio → `gemini-2.5-flash`** (free tier, 1M context). Zero code changed. That model-swap-without-code is exactly the point of an open, model-agnostic agent.
+**Why I switched models mid-build (an honest bug).** Hermes is model-agnostic, so swapping models is one `hermes model` call — and I ended up doing it a lot. First gotcha: Hermes rejects models under 64K context at startup (it needs working memory for multi-step tool calls). Then the real lesson: **rate limits, not raw capability, decide which free model can run an *agentic* job.** One brief is ~12 chained model calls inside a minute, so the per-minute cap matters more than the daily one. Google's `gemini-2.5-flash` (free) throttled at ~5 requests/minute and choked mid-brief; smaller Gemini variants were either too weak to chain tools or capped at 5 requests/day; NVIDIA NIM was blocked by phone verification in my region. What finally worked: OpenRouter's free **`nvidia/nemotron-3-super-120b-a12b:free`** — enough requests/minute to finish a brief, and ~50/day, which is plenty for an agent that runs once each morning. Total code changed across every one of those swaps: **zero**. That's the whole point of an open, model-agnostic agent.
 
 **License/cost.** MIT, fully forkable, and the entire stack is free — the point of an *open* agent you run on your own infrastructure.
 
@@ -85,7 +85,7 @@ The full diff is in the repo at `docs/skill-improvement.diff`.
 ## What I learned (and what's next)
 
 - Hermes refusing sub-64K models at startup saved me from a subtly broken agent.
-- The OpenRouter free tier's daily cap forced a one-command swap to Gemini — model-agnosticism paid off.
+- Rate limits, not raw capability, decide which *free* model can run an agentic job — I landed on OpenRouter's free Nemotron after Gemini throttled mid-brief. Zero code changed.
 - The skill-diff is more convincing than any demo — proof beats prose.
 - Next: a weekend "deep-dive" variant and a mute-via-Discord-reply.
 

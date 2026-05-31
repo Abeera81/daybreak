@@ -9,7 +9,7 @@ brief, **narrates it as audio**, and sends both to your phone on Discord.
 You never launch anything. And it gets sharper every day: reply to a brief with
 feedback, and the agent **rewrites its own skill file** to match your taste.
 
-**Total cost: $0.** Free Gemini (or OpenRouter) model · free Edge TTS · free
+**Total cost: $0.** Free OpenRouter model · free Edge TTS · free
 DuckDuckGo search · free Discord bot. No credit card anywhere.
 
 ---
@@ -43,7 +43,7 @@ kettle boils.
 ```bash
 git clone https://github.com/Abeera81/daybreak && cd daybreak
 ./setup.sh
-hermes model          # choose a FREE >=64K model (e.g. Google AI Studio gemini-2.5-flash)
+hermes model          # choose a FREE >=64K model (e.g. OpenRouter nvidia/nemotron-3-super-120b-a12b:free)
 # put DISCORD_BOT_TOKEN + DISCORD_ALLOWED_USERS in ~/.hermes/.env (see .env.example)
 hermes gateway setup && hermes gateway run
 ```

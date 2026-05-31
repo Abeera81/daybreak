@@ -33,7 +33,7 @@ cat <<'STEPS'
 
   1) Connect a FREE model (>=64K context, no card):
        hermes model
-       # pick Google AI Studio -> gemini-2.5-flash  (or any free >=64K model)
+       # pick OpenRouter -> nvidia/nemotron-3-super-120b-a12b:free  (or any free >=64K model)
 
   2) Add your Discord secrets to ~/.hermes/.env (see .env.example):
        DISCORD_BOT_TOKEN=...        # discord.com/developers -> your app -> Bot
