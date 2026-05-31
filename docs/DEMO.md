@@ -39,6 +39,38 @@ Suggested beats:
 3. Show the skill `git diff` (the agent rewriting its own rules).
 4. One line: "The best agent is the one you never open."
 
+### 4a. Silent recording shot plan (record now, narrate later)
+Record with Win+G (Xbox Game Bar) → Capture → ●. Have Discord (desktop/web) open.
+
+| Time | What's on screen | What you do |
+|------|------------------|-------------|
+| 0:00–0:08 | Discord #general (empty), thesis text visible | Sit on the empty channel for a beat |
+| 0:08–0:30 | Discord #general | The brief lands by itself — text + an audio file. Let it appear. |
+| 0:30–0:45 | The audio file in Discord | Click ▶ play; let the voice run a few seconds |
+| 0:45–1:05 | `docs/skill-improvement.diff` (open in VS Code) | Scroll slowly through the 2→8 rules diff |
+| 1:05–1:15 | Back to Discord brief (or a title card) | Hold on the result |
+
+Keep total ≤ 90s. Trim dead air in the YouTube editor or any free trimmer.
+
+### 4b. Voiceover script (read this over the silent clip, ~70s)
+> Every morning, six news tabs I never read. Daybreak fixes that — it's an
+> AI agent I never open.
+>
+> At 7 a.m., on its own, it searches the web for my topics, writes a 150-word
+> brief, and narrates it out loud. Here it is — arriving in Discord by itself:
+> the text, and a voice note.
+>
+> *(let the audio play for ~3 seconds)*
+>
+> That's free text-to-speech. I just listen while the kettle boils.
+>
+> And it improves itself. I told it once: "lead with security CVEs." It rewrote
+> its own instructions — look: the style rules grew from two to eight. No code
+> change. The agent edited its own skill file.
+>
+> Headless. Self-hosting. Audio. Total cost: zero dollars.
+> The best agent is the one you never open.
+
 ## 5. The cover image (1000×420)
 - Left: chaotic 30+ browser tabs. Right: a clean phone with a ▶ play button +
   "7:00 AM BRIEF". Big text: "THE AGENT YOU NEVER OPEN." Badge: "$0".
