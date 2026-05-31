@@ -49,8 +49,7 @@ text + voice to Discord. The thesis: "The best agent is the one you never open."
 - Windows host -> use WSL so the Linux installer works verbatim.
 
 ## Open questions / TODO
-- Confirm exact free OpenRouter model id (>=64K ctx).
-- Decide live host so the 7am cron fires while laptop sleeps.
+- Decide live host so the 7am cron fires while laptop sleeps (currently WSL must be awake).
 - Wire GitHub notifications (optional).
 
 ## File map
@@ -64,6 +63,7 @@ text + voice to Discord. The thesis: "The best agent is the one you never open."
 - docs/DEMO.md                 -> proof/artifact shot-list + checklists
 
 ## Human-only steps remaining (cannot be automated)
-- Install WSL: admin PowerShell `wsl --install`, then reboot.
-- Free OpenRouter key (openrouter.ai) -> `hermes model`.
-- Telegram bot token (@BotFather) + numeric id (@userinfobot) -> ~/.hermes/.env.
+- Install WSL: admin PowerShell `wsl --install`, then reboot. [DONE]
+- Free model key via `hermes model` (using Google AI Studio gemini-2.5-flash). [DONE]
+- Discord bot token + numeric user id -> ~/.hermes/.env. [DONE]
+- Remaining: record demo video, make cover image, fill BLOG_POST.md placeholders, publish on dev.to.
