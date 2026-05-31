@@ -3,10 +3,11 @@
 This is your shot-list for the submission artifacts. Capture these once the live
 agent is running (see README → Setup).
 
-## 1. The 7am Telegram message (screenshot)
-- Trigger a brief on demand: in Hermes, run the `daily-brief` skill (or
-  `hermes cron run daily-brief`).
-- Screenshot the Telegram message showing **text + the voice/audio note**.
+## 1. The 7am Discord message (screenshot)
+- Trigger a brief on demand:
+  `hermes -z "Run the daily-brief skill now and deliver text + audio to discord:#general." --yolo`
+  (or `hermes cron run daybreak-morning`)
+- Screenshot the Discord message showing **text + the audio file**.
 
 ## 2. The audio (10s clip for video)
 - Play the delivered MP3. Record a short clip for the cover/video.
@@ -18,7 +19,7 @@ This must be **real** — produced from actual feedback, not faked.
 # Before giving feedback, snapshot the skill:
 cp ~/.hermes/skills/daily-brief/SKILL.md before.md
 
-# Reply to a brief on Telegram, e.g.:
+# Reply to a brief on Discord, e.g.:
 #   "too much marketing fluff, lead with CVEs"
 # and tell the agent to update the "## Style rules" section.
 
@@ -28,12 +29,13 @@ cp ~/.hermes/skills/daily-brief/SKILL.md after.md
 # Capture the diff and screenshot it:
 git diff --no-index before.md after.md
 ```
-- Note the line counts (e.g. "day-1 style rules = 6 lines, day-7 = 38 lines").
+- Note the line counts (this build: style rules went **2 -> 8 rules**). See
+  `docs/skill-improvement.diff`.
 
 ## 4. The 60–90s video (unlisted YouTube, with voiceover)
 Suggested beats:
-1. The 7am Telegram message arriving.
-2. Press play on the audio note.
+1. The 7am Discord message arriving.
+2. Press play on the audio file.
 3. Show the skill `git diff` (the agent rewriting its own rules).
 4. One line: "The best agent is the one you never open."
 

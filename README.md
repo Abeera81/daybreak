@@ -9,8 +9,8 @@ brief, **narrates it as audio**, and sends both to your phone on Discord.
 You never launch anything. And it gets sharper every day: reply to a brief with
 feedback, and the agent **rewrites its own skill file** to match your taste.
 
-**Total cost: $0.** Free OpenRouter model · free Edge TTS · free DuckDuckGo
-search · free Discord bot. No credit card anywhere.
+**Total cost: $0.** Free Gemini (or OpenRouter) model · free Edge TTS · free
+DuckDuckGo search · free Discord bot. No credit card anywhere.
 
 ---
 
@@ -31,7 +31,7 @@ kettle boils.
 
 | Hermes capability | Role in Daybreak |
 |---|---|
-| Natural-language **cron** | "every weekday at 7:00am" — no YAML, no crontab |
+| Natural-language **cron** | a weekday-7am schedule — no YAML hand-editing |
 | **Gateway** delivery | Text + voice straight to Discord |
 | **Web search** (DuckDuckGo) | Free, key-less topic research |
 | **Skills** + self-improvement | The agent edits `daily-brief/SKILL.md` from your feedback |
@@ -41,15 +41,16 @@ kettle boils.
 
 ### Linux / macOS / WSL
 ```bash
-git clone https://github.com/YOU/daybreak && cd daybreak
+git clone https://github.com/Abeera81/daybreak && cd daybreak
 ./setup.sh
-hermes model          # choose OpenRouter free, >=64K context, paste your key
+hermes model          # choose a FREE >=64K model (e.g. Google AI Studio gemini-2.5-flash)
 # put DISCORD_BOT_TOKEN + DISCORD_ALLOWED_USERS in ~/.hermes/.env (see .env.example)
-hermes gateway setup && hermes gateway start
+hermes gateway setup && hermes gateway run
 ```
-Then add the schedule inside Hermes:
+Then add the schedule:
 ```
-/cron add "every weekday at 7:00am" "Run my morning brief: use the daily-brief skill."
+hermes cron create "0 7 * * 1-5" "Run my morning brief using the daily-brief skill." \
+  --name daybreak-morning --skill daily-brief --deliver "discord:#general"
 ```
 
 ### Windows
