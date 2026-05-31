@@ -56,7 +56,21 @@ Repo: https://github.com/Abeera81/daybreak — the interesting file isn't code, 
 
 **Why a cron job, not a chatbot (and not a Python `schedule` loop).** Hermes' gateway runs a scheduler that ticks every 60 seconds and executes jobs in isolated agent sessions. I created the schedule in plain English — `hermes cron create "0 7 * * 1-5" --skill daily-brief --deliver discord:#general` — no YAML hand-editing, no crontab. The counterfactual: a hand-rolled `cron` + script would have no memory, no skill loop, and no multi-platform delivery. Honest concession: the gateway must stay running (a $5 VPS or a machine that's awake at 7am).
 
-**Why a skill file instead of a prompt.** The brief logic lives in `~/.hermes/skills/daily-brief/SKILL.md`, a Markdown file Hermes loads on demand via progressive disclosure. This matters because the agent **edits it from my feedback**. I gave it one round of feedback ("too much fluff, lead with CVEs and their severity"), and it rewrote its own `## Style rules` from **2 rules to 8** — adding "name the affected package and fixed version," "cut generic advice," "cap the audio at 90 seconds." The `git diff` is in the repo (`docs/skill-improvement.diff`); that's the learning loop with receipts, not a screenshot of a chat.
+**Why a skill file instead of a prompt.** The brief logic lives in `~/.hermes/skills/daily-brief/SKILL.md`, a Markdown file Hermes loads on demand via progressive disclosure. This matters because the agent **edits it from my feedback**. I gave it one round of feedback ("too much fluff, lead with CVEs and their severity"), and it rewrote its own `## Style rules` from **2 rules to 8**. Here's the actual `git diff` — the learning loop with receipts, not a screenshot of a chat:
+
+```diff
+ ## Style rules (the agent will extend this section from my feedback)
+ - No press-release fluff. No "exciting news". Lead with breaking changes.
+ - Plain language. Short sentences. No emoji in the audio script.
++- Lead with security CVEs and their severity scores.
++- For each CVE, name the affected package and the fixed version.
++- Cut generic advice (e.g., "consult CVE databases").
++- If Python news is a beta, one line max.
++- The single most actionable item should be bullet one.
++- Keep the audio script under 90 seconds.
+```
+
+The full diff is in the repo at `docs/skill-improvement.diff`.
 
 **Why Edge TTS.** Hermes ships Edge TTS as a free default — no key, no ElevenLabs bill. I checked: almost no other entry in this challenge used text-to-speech at all. Audio is the difference between a brief I skim and one I actually consume while making coffee. Concession: Edge TTS voices are good, not studio-grade.
 

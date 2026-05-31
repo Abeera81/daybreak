@@ -5,7 +5,7 @@ when_to_use: When asked to run the morning brief, or when the weekday-7am cron f
 ---
 
 ## Procedure
-1. Web-search (DuckDuckGo) these topics: ["Python releases", "LLM agents", "my-stack security CVEs"].
+1. Web-search (DuckDuckGo) these topics: ["AI and LLM news", "software development news", "cybersecurity and CVEs"].
 2. Check my GitHub notifications (if GITHUB_TOKEN is configured) for @mentions and review requests.
 3. Write a brief: max 150 words, 3 bullets, lead with anything breaking/actionable.
 4. Narrate the brief to an MP3 using the free Edge TTS provider.
