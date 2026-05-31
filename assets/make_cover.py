@@ -76,17 +76,5 @@ draw.text((60, 210), "never open.", font=f_title, fill=(245, 247, 255))
 draw.text((62, 312), "Autonomous  -  Self-improving  -  It speaks",
           font=f_sub, fill=(176, 188, 222))
 
-# $0 badge (top-right)
-badge_text = "$0"
-bx0, by0, bx1, by1 = 838, 50, 940, 132
-draw.rounded_rectangle([bx0, by0, bx1, by1], radius=18,
-                       fill=(255, 196, 92))
-tb = draw.textbbox((0, 0), badge_text, font=f_badge)
-tw, th = tb[2] - tb[0], tb[3] - tb[1]
-draw.text((bx0 + (bx1 - bx0 - tw) / 2 - tb[0],
-           by0 + (by1 - by0 - th) / 2 - tb[1]),
-          badge_text, font=f_badge, fill=(20, 18, 40))
-draw.text((792, 142), "no card", font=f_sub, fill=(176, 188, 222))
-
 img.save(OUT, "PNG")
 print("Saved", OUT, img.size)
